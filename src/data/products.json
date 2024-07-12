@@ -1,0 +1,842 @@
+[
+  {
+    "id": 1,
+    "title": "Cotton Shirt",
+    "description": "High-quality cotton shirt",
+    "price": 29.99,
+    "stock": 150,
+    "brand": "Brand A",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/Productos/H-30232/REMERAH30232B4.jpg",
+      "https://picsum.photos/200/300?random=2"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 2,
+    "title": "Denim Shirt",
+    "description": "Stylish denim shirt",
+    "price": 39.99,
+    "stock": 80,
+    "brand": "Brand B",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/H-30227-B-2.jpg",
+      "https://picsum.photos/200/300?random=4"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 3,
+    "title": "Linen Shirt",
+    "description": "Comfortable linen shirt",
+    "price": 34.99,
+    "stock": 60,
+    "brand": "Brand C",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/REMERAH30215B3.jpg",
+      "https://picsum.photos/200/300?random=6"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 4,
+    "title": "Formal Shirt",
+    "description": "Elegant formal shirt",
+    "price": 44.99,
+    "stock": 100,
+    "brand": "Brand D",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/REMERAH30228A3.jpg",
+      "https://picsum.photos/200/300?random=8"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 5,
+    "title": "Plaid Shirt",
+    "description": "Casual plaid shirt",
+    "price": 25.99,
+    "stock": 90,
+    "brand": "Brand E",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/Productos/H-30235/H3023510.jpg",
+      "https://picsum.photos/200/300?random=10"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 6,
+    "title": "Silk Shirt",
+    "description": "Luxurious silk shirt",
+    "price": 59.99,
+    "stock": 70,
+    "brand": "Brand F",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/Productos/h-30234/REMERAH30234A4.jpg",
+      "https://picsum.photos/200/300?random=12"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 7,
+    "title": "Flannel Shirt",
+    "description": "Warm flannel shirt",
+    "price": 31.99,
+    "stock": 40,
+    "brand": "Brand G",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/H-30250-B-3.jpg",
+      "https://picsum.photos/200/300?random=14"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 8,
+    "title": "Hawaiian Shirt",
+    "description": "Colorful Hawaiian shirt",
+    "price": 29.99,
+    "stock": 110,
+    "brand": "Brand H",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/H30225_4_.jpg",
+      "https://picsum.photos/200/300?random=16"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 9,
+    "title": "Chambray Shirt",
+    "description": "Stylish chambray shirt",
+    "price": 39.99,
+    "stock": 30,
+    "brand": "Brand I",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/B-31288-B-4.jpg",
+      "https://picsum.photos/200/300?random=18"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 10,
+    "title": "Oxford Shirt",
+    "description": "Classic oxford shirt",
+    "price": 35.99,
+    "stock": 50,
+    "brand": "Brand J",
+    "category": "shirts",
+    "images": [
+      "https://www.batuk.com.ar/storage/photos/Productos/H-29887/REMERAH29887B1.jpg",
+      "https://picsum.photos/200/300?random=20"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 11,
+    "title": "Denim Pants",
+    "description": "Stylish denim pants",
+    "price": 49.99,
+    "stock": 80,
+    "brand": "Brand B",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=21",
+      "https://picsum.photos/200/300?random=22"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 12,
+    "title": "Chinos",
+    "description": "Comfortable chinos",
+    "price": 39.99,
+    "stock": 100,
+    "brand": "Brand C",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=23",
+      "https://picsum.photos/200/300?random=24"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 13,
+    "title": "Cargo Pants",
+    "description": "Functional cargo pants",
+    "price": 44.99,
+    "stock": 70,
+    "brand": "Brand D",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=25",
+      "https://picsum.photos/200/300?random=26"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 14,
+    "title": "Khaki Pants",
+    "description": "Classic khaki pants",
+    "price": 35.99,
+    "stock": 90,
+    "brand": "Brand E",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=27",
+      "https://picsum.photos/200/300?random=28"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 15,
+    "title": "Slim Fit Pants",
+    "description": "Modern slim fit pants",
+    "price": 49.99,
+    "stock": 60,
+    "brand": "Brand F",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=29",
+      "https://picsum.photos/200/300?random=30"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 16,
+    "title": "Sweatpants",
+    "description": "Comfortable sweatpants",
+    "price": 29.99,
+    "stock": 100,
+    "brand": "Brand G",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=31",
+      "https://picsum.photos/200/300?random=32"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 17,
+    "title": "Pleated Pants",
+    "description": "Elegant pleated pants",
+    "price": 39.99,
+    "stock": 50,
+    "brand": "Brand H",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=33",
+      "https://picsum.photos/200/300?random=34"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 18,
+    "title": "Corduroy Pants",
+    "description": "Warm corduroy pants",
+    "price": 45.99,
+    "stock": 70,
+    "brand": "Brand I",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=35",
+      "https://picsum.photos/200/300?random=36"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 19,
+    "title": "Drawstring Pants",
+    "description": "Relaxed drawstring pants",
+    "price": 25.99,
+    "stock": 100,
+    "brand": "Brand J",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=37",
+      "https://picsum.photos/200/300?random=38"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 20,
+    "title": "Jogger Pants",
+    "description": "Stylish jogger pants",
+    "price": 34.99,
+    "stock": 90,
+    "brand": "Brand K",
+    "category": "pants",
+    "images": [
+      "https://picsum.photos/200/300?random=39",
+      "https://picsum.photos/200/300?random=40"
+    ],
+    "size": ["28", "30", "32", "34"]
+  },
+  {
+    "id": 21,
+    "title": "Winter Jacket",
+    "description": "Warm and comfortable winter jacket",
+    "price": 99.99,
+    "stock": 60,
+    "brand": "Brand C",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=41",
+      "https://picsum.photos/200/300?random=42"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 22,
+    "title": "Leather Jacket",
+    "description": "Stylish leather jacket",
+    "price": 149.99,
+    "stock": 40,
+    "brand": "Brand D",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=43",
+      "https://picsum.photos/200/300?random=44"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 23,
+    "title": "Bomber Jacket",
+    "description": "Trendy bomber jacket",
+    "price": 89.99,
+    "stock": 80,
+    "brand": "Brand E",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=45",
+      "https://picsum.photos/200/300?random=46"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 24,
+    "title": "Puffer Jacket",
+    "description": "Warm puffer jacket",
+    "price": 119.99,
+    "stock": 50,
+    "brand": "Brand F",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=47",
+      "https://picsum.photos/200/300?random=48"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 25,
+    "title": "Denim Jacket",
+    "description": "Classic denim jacket",
+    "price": 79.99,
+    "stock": 70,
+    "brand": "Brand G",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=49",
+      "https://picsum.photos/200/300?random=50"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 26,
+    "title": "Track Jacket",
+    "description": "Comfortable track jacket",
+    "price": 59.99,
+    "stock": 90,
+    "brand": "Brand H",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=51",
+      "https://picsum.photos/200/300?random=52"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 27,
+    "title": "Field Jacket",
+    "description": "Durable field jacket",
+    "price": 99.99,
+    "stock": 40,
+    "brand": "Brand I",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=53",
+      "https://picsum.photos/200/300?random=54"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 28,
+    "title": "Anorak Jacket",
+    "description": "Waterproof anorak jacket",
+    "price": 129.99,
+    "stock": 30,
+    "brand": "Brand J",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=55",
+      "https://picsum.photos/200/300?random=56"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 29,
+    "title": "Trench Coat",
+    "description": "Stylish trench coat",
+    "price": 119.99,
+    "stock": 30,
+    "brand": "Brand K",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=57",
+      "https://picsum.photos/200/300?random=58"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 30,
+    "title": "Peacoat",
+    "description": "Classic peacoat",
+    "price": 139.99,
+    "stock": 50,
+    "brand": "Brand L",
+    "category": "jackets",
+    "images": [
+      "https://picsum.photos/200/300?random=59",
+      "https://picsum.photos/200/300?random=60"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 31,
+    "title": "Summer Dress",
+    "description": "Elegant summer dress",
+    "price": 39.99,
+    "stock": 100,
+    "brand": "Brand D",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=61",
+      "https://picsum.photos/200/300?random=62"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 32,
+    "title": "Evening Gown",
+    "description": "Stunning evening gown",
+    "price": 149.99,
+    "stock": 30,
+    "brand": "Brand E",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=63",
+      "https://picsum.photos/200/300?random=64"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 33,
+    "title": "Casual Dress",
+    "description": "Comfortable casual dress",
+    "price": 29.99,
+    "stock": 90,
+    "brand": "Brand F",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=65",
+      "https://picsum.photos/200/300?random=66"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 34,
+    "title": "Cocktail Dress",
+    "description": "Stylish cocktail dress",
+    "price": 79.99,
+    "stock": 60,
+    "brand": "Brand G",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=67",
+      "https://picsum.photos/200/300?random=68"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 35,
+    "title": "Maxi Dress",
+    "description": "Elegant maxi dress",
+    "price": 49.99,
+    "stock": 70,
+    "brand": "Brand H",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=69",
+      "https://picsum.photos/200/300?random=70"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 36,
+    "title": "Midi Dress",
+    "description": "Chic midi dress",
+    "price": 59.99,
+    "stock": 50,
+    "brand": "Brand I",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=71",
+      "https://picsum.photos/200/300?random=72"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 37,
+    "title": "Bodycon Dress",
+    "description": "Trendy bodycon dress",
+    "price": 39.99,
+    "stock": 80,
+    "brand": "Brand J",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=73",
+      "https://picsum.photos/200/300?random=74"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 38,
+    "title": "Shift Dress",
+    "description": "Stylish shift dress",
+    "price": 29.99,
+    "stock": 100,
+    "brand": "Brand K",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=75",
+      "https://picsum.photos/200/300?random=76"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 39,
+    "title": "Wrap Dress",
+    "description": "Elegant wrap dress",
+    "price": 69.99,
+    "stock": 60,
+    "brand": "Brand L",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=77",
+      "https://picsum.photos/200/300?random=78"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 40,
+    "title": "Tunic Dress",
+    "description": "Comfortable tunic dress",
+    "price": 49.99,
+    "stock": 90,
+    "brand": "Brand M",
+    "category": "dresses",
+    "images": [
+      "https://picsum.photos/200/300?random=79",
+      "https://picsum.photos/200/300?random=80"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 41,
+    "title": "Hoodie",
+    "description": "Comfortable hoodie",
+    "price": 39.99,
+    "stock": 100,
+    "brand": "Brand E",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=81",
+      "https://picsum.photos/200/300?random=82"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 42,
+    "title": "Crewneck Sweatshirt",
+    "description": "Classic crewneck sweatshirt",
+    "price": 29.99,
+    "stock": 80,
+    "brand": "Brand F",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=83",
+      "https://picsum.photos/200/300?random=84"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 43,
+    "title": "Zip-up Hoodie",
+    "description": "Stylish zip-up hoodie",
+    "price": 49.99,
+    "stock": 70,
+    "brand": "Brand G",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=85",
+      "https://picsum.photos/200/300?random=86"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 44,
+    "title": "Pullover Hoodie",
+    "description": "Comfortable pullover hoodie",
+    "price": 39.99,
+    "stock": 90,
+    "brand": "Brand H",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=87",
+      "https://picsum.photos/200/300?random=88"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 45,
+    "title": "Graphic Sweatshirt",
+    "description": "Stylish graphic sweatshirt",
+    "price": 29.99,
+    "stock": 60,
+    "brand": "Brand I",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=89",
+      "https://picsum.photos/200/300?random=90"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 46,
+    "title": "Athletic Sweatshirt",
+    "description": "Comfortable athletic sweatshirt",
+    "price": 49.99,
+    "stock": 70,
+    "brand": "Brand J",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=91",
+      "https://picsum.photos/200/300?random=92"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 47,
+    "title": "Fleece Sweatshirt",
+    "description": "Warm fleece sweatshirt",
+    "price": 39.99,
+    "stock": 50,
+    "brand": "Brand K",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=93",
+      "https://picsum.photos/200/300?random=94"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 48,
+    "title": "Tie-Dye Sweatshirt",
+    "description": "Trendy tie-dye sweatshirt",
+    "price": 29.99,
+    "stock": 100,
+    "brand": "Brand L",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=95",
+      "https://picsum.photos/200/300?random=96"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 49,
+    "title": "V-Neck Sweatshirt",
+    "description": "Stylish V-neck sweatshirt",
+    "price": 34.99,
+    "stock": 80,
+    "brand": "Brand M",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=97",
+      "https://picsum.photos/200/300?random=98"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 50,
+    "title": "Quarter-Zip Sweatshirt",
+    "description": "Comfortable quarter-zip sweatshirt",
+    "price": 49.99,
+    "stock": 70,
+    "brand": "Brand N",
+    "category": "sweatshirts",
+    "images": [
+      "https://picsum.photos/200/300?random=99",
+      "https://picsum.photos/200/300?random=100"
+    ],
+    "size": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": 51,
+    "title": "Denim Skirt",
+    "description": "Stylish denim skirt",
+    "price": 29.99,
+    "stock": 60,
+    "brand": "Brand F",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=101",
+      "https://picsum.photos/200/300?random=102"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 52,
+    "title": "Pleated Skirt",
+    "description": "Elegant pleated skirt",
+    "price": 39.99,
+    "stock": 40,
+    "brand": "Brand G",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=103",
+      "https://picsum.photos/200/300?random=104"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 53,
+    "title": "Mini Skirt",
+    "description": "Trendy mini skirt",
+    "price": 24.99,
+    "stock": 70,
+    "brand": "Brand H",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=105",
+      "https://picsum.photos/200/300?random=106"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 54,
+    "title": "Maxi Skirt",
+    "description": "Comfortable maxi skirt",
+    "price": 34.99,
+    "stock": 50,
+    "brand": "Brand I",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=107",
+      "https://picsum.photos/200/300?random=108"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 55,
+    "title": "A-Line Skirt",
+    "description": "Chic A-line skirt",
+    "price": 44.99,
+    "stock": 60,
+    "brand": "Brand J",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=109",
+      "https://picsum.photos/200/300?random=110"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 56,
+    "title": "Pencil Skirt",
+    "description": "Elegant pencil skirt",
+    "price": 29.99,
+    "stock": 80,
+    "brand": "Brand K",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=111",
+      "https://picsum.photos/200/300?random=112"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 57,
+    "title": "Wrap Skirt",
+    "description": "Stylish wrap skirt",
+    "price": 39.99,
+    "stock": 70,
+    "brand": "Brand L",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=113",
+      "https://picsum.photos/200/300?random=114"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 58,
+    "title": "Tiered Skirt",
+    "description": "Trendy tiered skirt",
+    "price": 34.99,
+    "stock": 90,
+    "brand": "Brand M",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=115",
+      "https://picsum.photos/200/300?random=116"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 59,
+    "title": "Tulle Skirt",
+    "description": "Elegant tulle skirt",
+    "price": 49.99,
+    "stock": 50,
+    "brand": "Brand N",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=117",
+      "https://picsum.photos/200/300?random=118"
+    ],
+    "size": ["S", "M", "L"]
+  },
+  {
+    "id": 60,
+    "title": "Button-Up Skirt",
+    "description": "Chic button-up skirt",
+    "price": 29.99,
+    "stock": 100,
+    "brand": "Brand O",
+    "category": "skirts",
+    "images": [
+      "https://picsum.photos/200/300?random=119",
+      "https://picsum.photos/200/300?random=120"
+    ],
+    "size": ["S", "M", "L"]
+  }
+]
