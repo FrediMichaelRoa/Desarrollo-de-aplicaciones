@@ -18,22 +18,24 @@ const CartItem = ({ cartItem }) => {
   };
 
   return (
-    <View style={styles.card}>
-      <View style={styles.imageContainer}>
-        <Image
-          resizeMode="cover"
-          style={styles.image}
-          source={{ uri: cartItem.images[0] }}
-        />
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <View style={styles.imageContainer}>
+          <Image
+            resizeMode="cover"
+            style={styles.image}
+            source={{ uri: cartItem.images[0] }}
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{cartItem.title}</Text>
+          <Text style={styles.text2}>${cartItem.price}</Text>
+          <Counter value={cartItem.quantity} onChange={handleQuantityChange} />
+        </View>
+        <Pressable style={styles.iconContainer} onPress={handleRemove}>
+          <FontAwesome5 name="trash-alt" size={30} color="red" />
+        </Pressable>
       </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{cartItem.title}</Text>
-        <Text style={styles.text2}>${cartItem.price}</Text>
-        <Counter value={cartItem.quantity} onChange={handleQuantityChange} />
-      </View>
-      <Pressable style={styles.iconContainer} onPress={handleRemove}>
-        <FontAwesome5 name="trash-alt" size={30} color="red" />
-      </Pressable>
     </View>
   );
 };
@@ -43,11 +45,13 @@ export default CartItem;
 const styles = StyleSheet.create({
   card: {
     height: 125,
-    backgroundColor: colors.white,
+    width:400,
+    backgroundColor: colors.Background,
     padding: 10,
     margin: 10,
     flexDirection: "row",
-    position: 'relative',
+    borderRadius:10,
+    
   },
   imageContainer: {
     width: 100,

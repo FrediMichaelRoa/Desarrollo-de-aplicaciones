@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: 10,
+    paddingTop:50,
     backgroundColor: colors.Background,
-    marginTop: 35, // Alineación con el header
+ // Alineación con el header
   },
   mainContainerLandscape: {
     flex: 1,

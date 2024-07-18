@@ -1,9 +1,6 @@
 import { StyleSheet, Text, Pressable } from 'react-native'
-
-
 import Card from './Card';
 import { colors } from '../global/colors';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategorySelected } from '../features/Shop/ShopSlice';
 
@@ -37,6 +34,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20,
         textAlign: 'center',
-        color: colors.black
+        color: colors.black,
+        textTransform:"uppercase"
     }
 })

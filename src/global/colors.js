@@ -4,5 +4,5 @@ export const colors = {
   Purple: "#A998ED",
   Input: "#DFDBF9",
   black: "#000003",
-  white: "#fffff3"
+  white: "#FFFFFF"
 };

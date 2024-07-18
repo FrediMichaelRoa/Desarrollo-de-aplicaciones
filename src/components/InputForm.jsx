@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     paddintTop: 2,
     fontSize: 16,
     color: "red",
-    fontFamily: "Josefin",
+  
     fontStyle: "italic",
   },
   input: {

@@ -1,24 +1,24 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { colors } from "../global/colors";
 import { useState } from "react";
-import { FontAwesome5, FontAwesome6, AntDesign } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Search = ({ onSearch = () => {}, error = '', goBack = () => {} }) => {
   const [keyword, setKeyword] = useState("");
 
   return (
     <View style={styles.container}>
-      
+      <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
           placeholder="Search..."
           value={keyword}
           onChangeText={setKeyword}
         />
-        <Pressable onPress={() => onSearch(keyword)} style={styles.searchIcon}>
+        <View style={styles.searchIcon}>
           <FontAwesome5 name="search" size={24} color="black" />
-        </Pressable>
-      
+        </View>
+      </View>
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
   );
@@ -34,15 +34,17 @@ const styles = StyleSheet.create({
     gap: 18,
     width: "85%",
     position: "relative",
-    paddingTop:12,
   },
   inputContainer: {
-    
+    flexDirection: "row",
+    alignItems: "center",
+    width: '100%',
+    position: 'relative', // Mantener relativo para que el icono esté dentro
   },
   input: {
-    width: '100%',
+    flex: 1,
     padding: 8,
-    paddingRight: 40, // Añadir espacio a la derecha para el icono de búsqueda
+    paddingRight: 40, // Espacio para el icono de búsqueda
     fontSize: 18,
     backgroundColor: colors.Input,
     color: "#5E5E5E",
@@ -52,11 +54,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     top: '50%',
-    transform: [{ translateY: -12 }], // Centrar el icono verticalmente
+    transform: [{ translateY: -12 }], // Centrar verticalmente el icono
   },
   errorText: {
     color: colors.white,
     fontSize: 16,
     fontFamily: "Josefin",
+    marginTop: 8,
   },
 });

@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { baseUrl } from "../databases/realtimeDataBase";
 
-
-
 export const shopApi = createApi({
   reducerPath: "shopApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+  tagTypes: ["profileImageGet"],
   endpoints: (builder) => ({
     getCategories: builder.query({
       query: () => `categories.json`,
@@ -32,12 +31,47 @@ export const shopApi = createApi({
         body: order,
       }),
     }),
+    getProfileimage: builder.query({
+      query: (localId) => `profileImages/${localId}.json`,
+      providesTags: ["profileImageGet"],
+    }),
+    postProfileImage: builder.mutation({
+      query: ({ image, localId }) => ({
+        url: `profileImages/${localId}.json`,
+        method: "PUT",
+        body: {
+          image: image,
+        },
+      }),
+      invalidatesTags: ["profileImageGet"],
+    }),
+    // getLocation: builder.query({
+    //   query: (localId) => `locations/${localId}.json`,
+    //   providesTags: ["locationGet"],
+    // }),
+    // postLocation: builder.mutation({
+    //   query: ({ location, localId }) => ({
+    //     url: `locations/${localId}.json`,
+    //     method: "PUT",
+    //     body: {
+    //       latitude: location.latitude,
+    //       longitude: location.longitude,
+    //       address: location.address,
+    //       updatedAt: location.updatedAt,
+    //     },
+    //   }),
+    //   invalidatesTags: ["locationGet"],
+    // }),
   }),
 });
 
 export const {
-  useGetCategoriesQuery, 
-  useGetProductsByCategoryQuery, 
+  useGetCategoriesQuery,
+  useGetProductsByCategoryQuery,
   useGetProductByIdQuery,
-  usePostOrderMutation
+  usePostOrderMutation,
+  useGetProfileimageQuery,
+  usePostProfileImageMutation,
+  useGetLocationQuery,
+  usePostLocationMutation,
 } = shopApi;

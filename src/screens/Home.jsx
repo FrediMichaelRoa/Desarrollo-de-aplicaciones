@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'absolute',
-    top: 700, // Ajusta esta posición según sea necesario
+    top: "80%", // Ajusta esta posición según sea necesario
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1,

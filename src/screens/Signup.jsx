@@ -1,66 +1,60 @@
+// components/Signup.js
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import { colors } from "../global/colors";
-import SubmitButton from "../components/SubmitButton";
+import Button from "../components/Button";
 import InputForm from "../components/InputForm";
 import { useSignUpMutation } from "../services/authService";
 import { useDispatch } from "react-redux";
-import { setUser } from "../features/User/UserSlice";
+import { setUser } from "../features/User/UserSlice"; 
 import { signupSchema } from "../validations/singUpScheme";
-
-
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [errorMail, setErrorMail] = useState("");
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-  const [confirmPassword, setconfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
 
-  const dispatch = useDispatch()
-  const [triggerSignUp, result] = useSignUpMutation()
+  const dispatch = useDispatch();
+  const [triggerSignUp, result] = useSignUpMutation();
 
   useEffect(() => {
     if (result.isSuccess) {
-      dispatch(
-        setUser({
-          email: result.data.email,
-          idToken: result.data.idToken
-        })
-      )
+      const userData = {
+        email: result.data.email,
+        idToken: result.data.idToken,
+        localId: result.data.localId,
+        password: result.data.password,
+      };
+      dispatch(setUser(userData));
     }
-  }, [result])
+  }, [result]);
 
   const onSubmit = () => {
     try {
-
       setErrorMail("");
       setErrorPassword("");
       setErrorConfirmPassword("");
-      signupSchema.validateSync({ email, password, confirmPassword })
-      triggerSignUp({ email, password, returnSecureToken: true })
-    
+      signupSchema.validateSync({ email, password, confirmPassword });
+      triggerSignUp({ email, password, returnSecureToken: true });
     } catch (err) {
-
-      console.log("Entro al signup del error");
-      console.log(err.path);
-      console.log(err.message);
       switch (err.path) {
         case "email":
           setErrorMail(err.message);
+          break;
         case "password":
           setErrorPassword(err.message);
+          break;
         case "confirmPassword":
           setErrorConfirmPassword(err.message);
+          break;
         default:
           break;
       }
-
     }
-  }
-
-  //console.log(result)
+  };
 
   return (
     <View style={styles.main}>
@@ -79,21 +73,18 @@ const Signup = ({ navigation }) => {
         />
         <InputForm
           label={"confirm password"}
-          onChange={setconfirmPassword}
+          onChange={setConfirmPassword}
           error={errorConfirmPassword}
           isSecure={true}
         />
-        <SubmitButton onPress={onSubmit} title="Send" />
-        <Text style={styles.sub}>Already have an account?</Text>
+        <Button onPress={onSubmit} title="Create Account" />
         <Pressable onPress={() => navigation.navigate("Login")}>
-          <Text style={styles.subLink}>Login</Text>
+          <Text style={styles.sub}>Already have an account?</Text>
         </Pressable>
       </View>
     </View>
   );
 };
-
-export default Signup;
 
 const styles = StyleSheet.create({
   main: {
@@ -115,16 +106,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontFamily: "Josefin",
   },
   sub: {
     fontSize: 14,
-    fontFamily: "Josefin",
     color: "black",
   },
   subLink: {
     fontSize: 14,
-    fontFamily: "Josefin",
     color: "blue",
   },
 });
+
+export default Signup;

@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ItemListCategory from "../screens/ItemListCategory";
 import ItemDetail from "../screens/ItemDetail";
 import Categories from "../screens/Categories";
-import Header from "../components/Header"; // Asegúrate de importar los estilos del Header aquí
+import Header from "../components/Header";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,29 +13,41 @@ const CategoriesStackNavigator = () => {
       <Stack.Screen
         name="Categories"
         component={Categories}
-        options={{
-          header: ({ navigation, route }) => (
-            <Header title={route.name} navigation={navigation} /> // Aquí utilizas el componente Header con los estilos deseados
+        options={({ navigation, route }) => ({
+          header: () => (
+            <Header
+              title={route.name}
+              navigation={navigation}
+              canGoBack={false} // No debería haber botón de retroceso en la pantalla inicial
+            />
           ),
-        }}
+        })}
       />
       <Stack.Screen
         name="ItemListCategory"
         component={ItemListCategory}
-        options={{
-          header: ({ navigation, route }) => (
-            <Header title="Products" navigation={navigation} /> // Puedes personalizar cada encabezado según necesites
+        options={({ navigation, route }) => ({
+          header: () => (
+            <Header
+              title="Products"
+              navigation={navigation}
+              canGoBack={true} // Habilitar el botón de retroceso en esta pantalla
+            />
           ),
-        }}
+        })}
       />
       <Stack.Screen
         name="ItemDetail"
         component={ItemDetail}
-        options={{
-          header: ({ navigation, route }) => (
-            <Header title="Detail" navigation={navigation} /> // También puedes pasar propiedades adicionales según necesites
+        options={({ navigation, route }) => ({
+          header: () => (
+            <Header
+              title="Detail"
+              navigation={navigation}
+              canGoBack={true} // Habilitar el botón de retroceso en esta pantalla
+            />
           ),
-        }}
+        })}
       />
     </Stack.Navigator>
   );

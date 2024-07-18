@@ -2,21 +2,23 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { colors } from '../global/colors'
 import * as ImagePicker from 'expo-image-picker';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCameraImage } from '../features/User/UserSlice';
+import { usePostProfileImageMutation } from '../services/shopServices';
 
-const ImageSelector = () => {
+const ImageSelector = ({ navigation }) => {
+  const [image, setImage] = useState(null);
+  const [triggerPostImage] = usePostProfileImageMutation();
+  const dispatch = useDispatch();
+  const { localId } = useSelector((state) => state.auth.value);
 
-  const [image, setImage] = useState(null)
-
-  const verifyCameraPermisson = async () => {
+  const verifyCameraPermission = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
-    if (!status) {
-      return false
-    }
-    return true
-  }
+    return status === 'granted';
+  };
 
   const pickImage = async () => {
-    const isCameraOk = await verifyCameraPermisson()
+    const isCameraOk = await verifyCameraPermission();
     if (isCameraOk) {
       let result = await ImagePicker.launchCameraAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -26,26 +28,30 @@ const ImageSelector = () => {
         quality: 0.2,
       });
 
-      //console.log(result);
-
       if (!result.canceled) {
         setImage(`data:image/jpeg;base64,${result.assets[0].base64}`);
       }
     }
-  }
+  };
 
-  const confirmImage = () => {
-    
-  }
+  const confirmImage = async () => {
+    try {
+      dispatch(setCameraImage(image));
+      await triggerPostImage({ image, localId });
+      navigation.goBack();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      {image ?
+      {image ? (
         <>
           <Image
             style={styles.img}
             resizeMode='cover'
-            source={{ uri: image}}
+            source={{ uri: image }}
           />
           <Pressable
             onPress={pickImage}
@@ -59,7 +65,8 @@ const ImageSelector = () => {
           >
             <Text style={{ color: "#fff" }}>Confirm photo</Text>
           </Pressable>
-        </> :
+        </>
+      ) : (
         <>
           <View style={styles.containerPhoto}>
             <Text>No photo to show...</Text>
@@ -71,17 +78,17 @@ const ImageSelector = () => {
             <Text style={{ color: "#fff" }}>Take a photo</Text>
           </Pressable>
         </>
-      }
+      )}
     </View>
-  )
-}
+  );
+};
 
-export default ImageSelector
+export default ImageSelector;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   btn: {
     marginTop: 10,
@@ -90,13 +97,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 7,
-    borderRadius: 5
+    borderRadius: 5,
   },
   img: {
     marginVertical: 20,
     height: 200,
     width: 200,
-    borderRadius: 100
+    borderRadius: 100,
   },
   containerPhoto: {
     marginVertical: 20,
@@ -105,6 +112,6 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderWidth: 1,
     alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+    justifyContent: 'center',
+  },
+});

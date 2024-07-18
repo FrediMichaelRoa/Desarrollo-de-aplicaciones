@@ -1,13 +1,14 @@
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStackNavigator from './HomeStackNavigator';
+import CategoriesStackNavigator from './CategoriesStackNavigator';
 import CartStackNavigator from './CartStackNavigator';
 import OrderStackNavigator from './OrderStackNavigator';
+import MyProfileStackNavigator from './MyProfileStackNavigator';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { View } from 'react-native';
 import Header from '../components/Header';
 import { colors } from '../global/colors';
-import { FontAwesome5 } from "@expo/vector-icons";
-import MyProfileStackNavigator from './MyProfileStackNavigator';
-import CategoriesStackNavigator from './CategoriesStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,12 +20,15 @@ const BottomTabNavigator = () => {
           return <Header title={route.name} />;
         },
         tabBarShowLabel: false,
-        tabBarStyle: styles.tabBar,
+        tabBarStyle: {
+          backgroundColor: colors.white,
+          height: 60,
+        },
         headerShown: false,
       })}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeStack"
         component={HomeStackNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -35,7 +39,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Categories"
+        name="CategoriesStack"
         component={CategoriesStackNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -46,7 +50,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Cart"
+        name="CartStack"
         component={CartStackNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -57,7 +61,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Checkout"
+        name="OrderStack"
         component={OrderStackNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -68,7 +72,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="MyProfileStack"
         component={MyProfileStackNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -83,10 +87,3 @@ const BottomTabNavigator = () => {
 }
 
 export default BottomTabNavigator;
-
-const styles = StyleSheet.create({
-  tabBar: {
-    backgroundColor: colors.white,
-    height: 60,
-  },
-});

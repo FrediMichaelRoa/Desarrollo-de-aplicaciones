@@ -1,37 +1,44 @@
-import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native';
 import CartItem from '../components/CartItem';
 import { useSelector } from 'react-redux';
 import { usePostOrderMutation } from '../services/shopServices';
-// import CartData from "../data/cart.json"
 import { calculateSubtotal, calculateShipping, calculateTotal } from '../features/Cart/cartUtils';
+import { colors } from '../global/colors';
 
 const Cart = () => {
-
-  const {items: CartData, total} = useSelector((state) => state.cart.value)
-
-  const [triggerPostOrder, result] = usePostOrderMutation()
+  const { items: CartData, total } = useSelector((state) => state.cart.value);
+  const [triggerPostOrder, result] = usePostOrderMutation();
 
   const onConfirmOrder = () => {
-    // logica de confirmacion de orden
-    triggerPostOrder({items: CartData, user: "Pedrito", total})
-  }
+    // Lógica de confirmación de orden
+    triggerPostOrder({ items: CartData, user: "Pedrito", total });
+  };
 
   const subtotal = calculateSubtotal(CartData);
   const shipping = calculateShipping(CartData);
   const totalAmount = calculateTotal(subtotal, shipping);
 
+  if (CartData.length === 0) {
+    return (
+      <View style={[styles.container, { backgroundColor: colors.Background }]}>
+        <View style={styles.emptyCartContainer}>
+          <Text style={styles.emptyCartText}>Your cart is empty!</Text>
+        </View>
+      </View>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      
+    <View style={[styles.container, { backgroundColor: colors.Background }]}>
       <FlatList
-      
         data={CartData}
         renderItem={({ item }) => {
           return <CartItem cartItem={item} />;
         }}
         keyExtractor={(producto) => producto.id}
       />
-    
+
       <View style={styles.checkoutCard}>
         <View style={styles.summaryRow}>
           <Text style={styles.summaryText}>Sub total:</Text>
@@ -54,19 +61,31 @@ const Cart = () => {
   );
 };
 
-export default Cart
+export default Cart;
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "space-between",
     flex: 1,
-    marginBottom: 100,
+    
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyCartContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyCartText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#555',
   },
   checkoutCard: {
+    height: 255,
+    width: 412,
     padding: 20,
-    margin: 10,
+    margin: 50,
     borderRadius: 10,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#fffff',
     borderWidth: 1,
     borderColor: '#a29bfe',
   },

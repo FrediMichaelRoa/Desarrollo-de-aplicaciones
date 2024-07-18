@@ -8,4 +8,7 @@ export const signupSchema = object().shape({
   confirmPassword: string()
     .oneOf([ref("password"), null], "Passwords must match")
     .required(),
+  firstName: string().required("First Name is required"),
+  lastName: string().required("Last Name is required"),
+  phone: string().required("Phone number is required"),
 });
