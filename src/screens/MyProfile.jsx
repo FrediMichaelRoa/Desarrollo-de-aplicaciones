@@ -1,30 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { useDispatch, useSelector } from "react-redux";
-import { useGetProfileimageQuery } from '../services/shopServices';
-import { clearUser } from '../features/User/UserSlice'; 
+import { StyleSheet, Text, View, Image, Pressable, Platform } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../global/colors';
+import { useGetProfileimageQuery } from '../services/shopServices';
+import { setCameraImage, clearUser } from '../features/User/UserSlice';
+import { useDB } from '../hooks/useDB';
 
 const MyProfile = ({ navigation }) => {
   const dispatch = useDispatch();
-  const { imageCamera, localId, email, firstName, lastName, phone } = useSelector((state) => state.auth.value);
+  const { imageCamera, localId, email } = useSelector((state) => state.auth.value);
   const { data: imageFromBase } = useGetProfileimageQuery(localId);
+  const { truncateSessionTable } = useDB();
 
-  const launchCamera = () => {
-    navigation.navigate("Image Selector");
+  const handleEditProfile = () => {
+    navigation.navigate('Image Selector');
   };
 
-  const signOut = async () => {
+  const handleEditGallery = () => {
+    navigation.navigate('Image Selector', { fromGallery: true });
+  };
+
+  const defaultImageRoute = require("../../assets/user.png");
+
+  const signOut = () => {
     try {
+      const response = truncateSessionTable();
+      // console.log(response)
       dispatch(clearUser());
-      navigation.navigate("Login"); // Redirige al usuario a la pantalla de inicio de sesión
     } catch (error) {
       console.log({ errorSignOutDB: error });
     }
   };
-
-  const defaultImageRoute = require("../../assets/user.png");
 
   return (
     <View style={styles.container}>
@@ -34,27 +41,20 @@ const MyProfile = ({ navigation }) => {
           style={styles.img}
           resizeMode="cover"
         />
-        <Pressable style={styles.cameraIcon} onPress={launchCamera}>
+        <Pressable style={styles.cameraIcon} onPress={handleEditProfile}>
           <Ionicons name="camera" size={24} color={colors.white} />
         </Pressable>
+      
       </View>
       <View style={styles.TextContainer}>
         <Text style={styles.TextLeft}>User data</Text>
-        <Pressable onPress={() => navigation.navigate("EditProfile")}>
-          <Text style={styles.TextRight}>Edit profile</Text>
-        </Pressable>
       </View>
       <View style={styles.Cardcontainer}>
-        <Text style={styles.cardText}>First Name: {firstName}</Text>
-        <Text style={styles.cardText}>Last Name: {lastName}</Text>
-        <Text style={styles.cardText}>Phone: {phone}</Text>
         <Text style={styles.cardText}>Email: {email}</Text>
       </View>
-      <View style={styles.buttonsContainer}>
-        <Pressable onPress={signOut}>
-          <Text style={styles.buttonText}>Sign Out</Text>
-        </Pressable>
-      </View>
+      <Pressable style={styles.buttonText} onPress={signOut}>
+        <Text style={styles.buttonText}>Sign Out</Text>
+      </Pressable>
     </View>
   );
 };
@@ -82,7 +82,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     right: 0,
-    backgroundColor: "black",
+    backgroundColor: 'black',
+    borderRadius: 20,
+    padding: 5,
+  },
+  galleryIcon: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    backgroundColor: 'black',
     borderRadius: 20,
     padding: 5,
   },
@@ -90,6 +98,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     width: '100%',
+    height: '40%',
     borderRadius: 19,
     backgroundColor: '#f8f8f8',
     borderWidth: 1,
@@ -111,8 +120,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   TextContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 10,
     width: '100%',
     paddingHorizontal: 20,
@@ -120,10 +129,6 @@ const styles = StyleSheet.create({
   TextLeft: {
     fontSize: 20,
   },
-  TextRight: {
-    fontSize: 18,
-    color: colors.primary,
-  }
 });
 
 export default MyProfile;

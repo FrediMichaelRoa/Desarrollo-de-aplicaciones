@@ -2,10 +2,8 @@ import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import CategoryItem from "../components/CategoryItem";
 import { colors } from "../global/colors";
-
 import { useGetCategoriesQuery } from "../services/shopServices";
 import Search from "../components/Search";
-
 
 const Categories = ({ navigation, route }) => {
   const {data: categories} = useGetCategoriesQuery()

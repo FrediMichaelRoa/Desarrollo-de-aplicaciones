@@ -4,5 +4,8 @@ export const colors = {
   Purple: "#A998ED",
   Input: "#DFDBF9",
   black: "#000003",
-  white: "#FFFFFF"
+  white: "#FFFFFF",
+  android:"#FFFFFF",
+  iOS:"#2E1A5B",
+  
 };

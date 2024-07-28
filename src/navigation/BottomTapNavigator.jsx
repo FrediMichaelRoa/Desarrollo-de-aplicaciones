@@ -21,7 +21,7 @@ const BottomTabNavigator = () => {
         },
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: colors.white,
+          backgroundColor: colors.iOS,
           height: 60,
         },
         headerShown: false,
@@ -33,7 +33,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <FontAwesome5 name="home" size={24} color={focused ? "black" : colors.lightGray} />
+              <FontAwesome5 name="home" size={24} color={focused ? "#A998ED" : colors.white} />
             </View>
           ),
         }}
@@ -44,7 +44,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <FontAwesome5 name="layer-group" size={24} color={focused ? "black" : colors.lightGray} />
+              <FontAwesome5 name="layer-group" size={24} color={focused ? "#A998ED" : colors.white} />
             </View>
           ),
         }}
@@ -55,7 +55,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <FontAwesome5 name="shopping-bag" size={24} color={focused ? "black" : colors.black} />
+              <FontAwesome5 name="shopping-bag" size={24} color={focused ? "#A998ED" : colors.white} />
             </View>
           ),
         }}
@@ -66,7 +66,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <FontAwesome5 name="receipt" size={24} color={focused ? "black" : colors.lightGray} />
+              <FontAwesome5 name="receipt" size={24} color={focused ? "#A998ED" : colors.white} />
             </View>
           ),
         }}
@@ -77,7 +77,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View>
-              <FontAwesome5 name="user-alt" size={24} color={focused ? "black" : colors.lightGray} />
+              <FontAwesome5 name="user-alt" size={24} color={focused ? "#A998ED" : colors.white} />
             </View>
           ),
         }}

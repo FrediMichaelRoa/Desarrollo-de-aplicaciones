@@ -1,36 +1,49 @@
 import { Pressable, StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
-import { colors } from "../global/colors";
-
+// import { colors } from "../global/colors";
 import ButtonGradient from '../components/Button';
 import InputForm from "../components/InputForm";
 import { useSignInMutation } from "../services/authService";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/User/UserSlice";
 import Svg, { Path, Defs, LinearGradient, Stop, ClipPath, Rect, G } from 'react-native-svg';
+import { useDB } from '../hooks/useDB'
 
 const { width } = Dimensions.get('window');
 
+
 const Login = ({ navigation }) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch()
 
-  const [triggerSignIn, result] = useSignInMutation();
+  const [triggerSignIn, result] = useSignInMutation() 
 
-  useEffect(() => {
-    if (result.isSuccess) {
-      dispatch(setUser({
+  const {insertSession} = useDB()
+
+
+  useEffect(()=> {
+    if (result?.data && result.isSuccess) {
+      insertSession({
         email: result.data.email,
-        idToken: result.data.idToken,
         localId: result.data.localId,
-      }));
-    }
-  }, [result]);
+        token: result.data.idToken,
 
-  const onSubmit = () => {
-    triggerSignIn({ email, password, returnSecureToken: true });
-  };
+      })
+      dispatch(
+        setUser({
+          email: result.data.email,
+          idToken: result.data.idToken,
+          localId: result.data.localId,
+        })
+      );        
+    }
+  }, [result])
+
+  const onSubmit = ()=> {
+    triggerSignIn({email, password, returnSecureToken: true})
+  }
+
 
   return (
     <View style={styles.main}>

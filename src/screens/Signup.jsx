@@ -14,52 +14,56 @@ const Signup = ({ navigation }) => {
   const [errorMail, setErrorMail] = useState("");
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
   const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
 
-  const dispatch = useDispatch();
-  const [triggerSignUp, result] = useSignUpMutation();
+  const dispatch = useDispatch()
+  const [triggerSignUp, result] = useSignUpMutation()
 
   useEffect(() => {
     if (result.isSuccess) {
-      const userData = {
-        email: result.data.email,
-        idToken: result.data.idToken,
-        localId: result.data.localId,
-        password: result.data.password,
-      };
-      dispatch(setUser(userData));
+      dispatch(
+        setUser({
+          email: result.data.email,
+          idToken: result.data.idToken,
+          localId: result.data.localId,
+          phone: result.data.phone,
+        })
+      )
     }
-  }, [result]);
+  }, [result])
 
   const onSubmit = () => {
     try {
+
       setErrorMail("");
       setErrorPassword("");
       setErrorConfirmPassword("");
-      signupSchema.validateSync({ email, password, confirmPassword });
-      triggerSignUp({ email, password, returnSecureToken: true });
+      signupSchema.validateSync({ email, password, confirmPassword })
+      triggerSignUp({ email, password, returnSecureToken: true })
+    
     } catch (err) {
+
+      console.log("Entro al signup del error");
+      console.log(err.path);
+      console.log(err.message);
       switch (err.path) {
         case "email":
           setErrorMail(err.message);
-          break;
         case "password":
           setErrorPassword(err.message);
-          break;
         case "confirmPassword":
           setErrorConfirmPassword(err.message);
-          break;
         default:
           break;
       }
     }
-  };
+  }
 
   return (
     <View style={styles.main}>
       <View style={styles.container}>
-        <Text style={styles.title}>Signup</Text>
+        <Text style={styles.title}>Sign up</Text>
         <InputForm
           label={"email"}
           onChange={setEmail}
@@ -73,7 +77,7 @@ const Signup = ({ navigation }) => {
         />
         <InputForm
           label={"confirm password"}
-          onChange={setConfirmPassword}
+          onChange={setconfirmPassword}
           error={errorConfirmPassword}
           isSecure={true}
         />
@@ -85,6 +89,7 @@ const Signup = ({ navigation }) => {
     </View>
   );
 };
+export default Signup;
 
 const styles = StyleSheet.create({
   main: {
@@ -117,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Signup;
+

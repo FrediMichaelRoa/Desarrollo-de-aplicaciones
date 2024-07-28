@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import React, { useState } from 'react'
-import { colors } from '../global/colors'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import React, { useState } from 'react';
+import { colors } from '../global/colors';
 import * as ImagePicker from 'expo-image-picker';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCameraImage } from '../features/User/UserSlice';
@@ -17,10 +17,32 @@ const ImageSelector = ({ navigation }) => {
     return status === 'granted';
   };
 
-  const pickImage = async () => {
+  const verifyGalleryPermission = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    return status === 'granted';
+  };
+
+  const pickImageFromCamera = async () => {
     const isCameraOk = await verifyCameraPermission();
     if (isCameraOk) {
       let result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [1, 1],
+        base64: true,
+        quality: 0.2,
+      });
+
+      if (!result.canceled) {
+        setImage(`data:image/jpeg;base64,${result.assets[0].base64}`);
+      }
+    }
+  };
+
+  const pickImageFromGallery = async () => {
+    const isGalleryOk = await verifyGalleryPermission();
+    if (isGalleryOk) {
+      let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
         allowsEditing: true,
         aspect: [1, 1],
@@ -54,10 +76,16 @@ const ImageSelector = ({ navigation }) => {
             source={{ uri: image }}
           />
           <Pressable
-            onPress={pickImage}
+            onPress={pickImageFromCamera}
             style={({ pressed }) => [styles.btn, { opacity: pressed ? 0.6 : 1 }]}
           >
             <Text style={{ color: "#fff" }}>Take new Photo</Text>
+          </Pressable>
+          <Pressable
+            onPress={pickImageFromGallery}
+            style={({ pressed }) => [styles.btn, { opacity: pressed ? 0.6 : 1 }]}
+          >
+            <Text style={{ color: "#fff" }}>Choose from Gallery</Text>
           </Pressable>
           <Pressable
             style={({ pressed }) => [styles.btn, { opacity: pressed ? 0.6 : 1 }]}
@@ -72,10 +100,16 @@ const ImageSelector = ({ navigation }) => {
             <Text>No photo to show...</Text>
           </View>
           <Pressable
-            onPress={pickImage}
+            onPress={pickImageFromCamera}
             style={({ pressed }) => [styles.btn, { opacity: pressed ? 0.6 : 1 }]}
           >
             <Text style={{ color: "#fff" }}>Take a photo</Text>
+          </Pressable>
+          <Pressable
+            onPress={pickImageFromGallery}
+            style={({ pressed }) => [styles.btn, { opacity: pressed ? 0.6 : 1 }]}
+          >
+            <Text style={{ color: "#fff" }}>Choose from Gallery</Text>
           </Pressable>
         </>
       )}
@@ -89,6 +123,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: colors.Background,
+    padding: 20,
   },
   btn: {
     marginTop: 10,
@@ -96,7 +132,7 @@ const styles = StyleSheet.create({
     width: "80%",
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 7,
+    paddingVertical: 10,
     borderRadius: 5,
   },
   img: {
@@ -104,14 +140,20 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
     borderRadius: 100,
+    borderWidth: 2,
+    borderColor: colors.primary,
   },
   containerPhoto: {
-    marginVertical: 20,
+    marginVertical: 40,
     height: 200,
     width: 200,
     borderRadius: 100,
-    borderWidth: 1,
+    borderWidth: 2,
+    borderColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    color: colors.primary,
   },
 });
